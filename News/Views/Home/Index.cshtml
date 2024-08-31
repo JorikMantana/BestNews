@@ -1,0 +1,24 @@
+﻿@{
+    ViewData["Title"] = "News Page";
+}
+
+@model IEnumerable<NewsModel>
+
+<div class="container">
+    <div class="row-1">
+        @foreach(var news in Model.Reverse())
+        {
+            <div class="d-flex justify-content-center">
+                <div class="card mb-5 w-75 bg-dark">
+                    <a class="nav-link table-hover link-warning" asp-controller="News" asp-route-id="@news.Id">
+                        @if(news.Image != null)
+                        {
+                            <img class="card-img" src="data:image /jpeg;base64,@(Convert.ToBase64String(news.Image))"></img>
+                        }
+                        <div class="card-text text-center fs-3">@news.ShortDescription</div>
+                    </a>
+                </div>
+            </div>
+        }
+    </div>
+</div>

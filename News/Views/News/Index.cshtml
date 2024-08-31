@@ -1,0 +1,15 @@
+﻿@*
+*@
+@{
+}
+@model NewsModel
+
+<div>
+    <div class="card bg-transparent">
+        @if(Model.Image != null)
+        {
+            <img class="card-img" src="data:image /jpeg;base64,@(Convert.ToBase64String(Model.Image))"></img>
+        }
+        <div class="card-text text-warning text-center fs-3">@Model.Description</div>
+    </div>
+</div>
